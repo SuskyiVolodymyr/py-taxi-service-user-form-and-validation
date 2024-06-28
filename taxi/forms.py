@@ -29,7 +29,7 @@ class DriverCreationForm(UserCreationForm, LicenseValidationMixin):
         return super().clean_license_number()
 
 
-class DriverUpdateLicenseForm(forms.ModelForm, LicenseValidationMixin):
+class DriverLicenseUpdateForm(forms.ModelForm, LicenseValidationMixin):
     class Meta:
         model = Driver
         fields = ("license_number",)
