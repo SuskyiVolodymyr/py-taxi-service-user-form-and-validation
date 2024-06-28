@@ -10,11 +10,13 @@ class LicenseValidationMixin:
     def clean_license_number(self) -> ValidationError | str:
         license_number = self.cleaned_data["license_number"]
         if (len(license_number) != 8
-                or not license_number[:3].isascii()
+                or not license_number[:3].isalpha()
                 or license_number[:3] != license_number[:3].upper()
                 or not license_number[3:].isnumeric()):
-            raise ValidationError("Driver license must be only 8 characters length,"
-                                  " first 3 uppercase letters and last 5 characters must be digits. ")
+            raise ValidationError(
+                "Driver license must be only 8 characters length, "
+                "first 3 uppercase letters "
+                "and last 5 characters must be digits. ")
         return license_number
 
 

@@ -122,4 +122,3 @@ class DriverDeleteView(LoginRequiredMixin, generic.DeleteView):
 class DriverUpdateLicenseView(LoginRequiredMixin, generic.UpdateView):
     model = Driver
     form_class = DriverUpdateLicenseForm
-
